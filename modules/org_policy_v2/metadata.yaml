@@ -30,18 +30,8 @@ spec:
     description: {}
   content:
     examples:
-      - name: basic_org_policies
-        location: examples/basic_org_policies
-      - name: boolean_org_exclude
-        location: examples/boolean_org_exclude
-      - name: boolean_project_allow
-        location: examples/boolean_project_allow
-      - name: list_folder_deny
-        location: examples/list_folder_deny
-      - name: list_org_exclude
-        location: examples/list_org_exclude
-      - name: v2_boolean_org_enforce
-        location: examples/v2_boolean_org_enforce
+      - name: simple_example
+        location: examples/simple_example
   interfaces:
     variables:
       - name: policy_root

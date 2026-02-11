@@ -50,12 +50,11 @@ spec:
         rules:
           name: rules
           title: Rules
-output:
-      displays:
-        - name: policy_root_id
-          title: Target Resource ID
-          visibility: VISIBILITY_ROOT  
-        - name: policy_root
-          title: Hierarchy Level       
-        - name: constraint
-          title: Applied Constraint   
+    runtime:
+      outputs:
+        constraint:
+          visibility: VISIBILITY_ROOT
+        policy_root:
+          visibility: VISIBILITY_ROOT
+        policy_root_id:
+          visibility: VISIBILITY_ROOT
