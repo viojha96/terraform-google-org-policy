@@ -28,28 +28,66 @@ spec:
       variables:
         constraint:
           name: constraint
-          title: Constraint
+          title: Constraint Name
+          regexValidation: ^constraints\/[a-zA-Z0-9._]+$
+          validation: Must be in the format constraints/service.constraintName.
+          subtext: The constraint to be applied (e.g., constraints/service.someConstraint).
+          level: 1
         exclude_folders:
           name: exclude_folders
           title: Exclude Folders
+          subtext: Set of folder IDs to exclude from the policy (e.g., ["123456789", "987654321"])
         exclude_projects:
           name: exclude_projects
           title: Exclude Projects
+          subtext: Set of project IDs to exclude from the policy (e.g., ["my-project-id", "another-project"])
         inherit_from_parent:
           name: inherit_from_parent
           title: Inherit From Parent
+          subtext: Determines the inheritance behavior for this policy (only supported on list constraints).
+          enumValueLabels:
+            - label: "False"
+              value: "false"
+            - label: "True"
+              value: "true"
         policy_root:
           name: policy_root
-          title: Policy Root
+          title: Policy Root Type
+          subtext: "Resource hierarchy node to apply the policy to: organization, folder, or project."
+          enumValueLabels:
+            - label: Organization
+              value: organization
+            - label: Folder
+              value: folder
+            - label: Project
+              value: project
+          altDefaults:
+            - type: ALTERNATE_TYPE_DC
+              value: organization
         policy_root_id:
           name: policy_root_id
-          title: Policy Root Id
+          title: Policy Root ID
+          regexValidation: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+          validation: Must be a valid GCP resource ID (e.g., project-id, folder-id, org-id).
+          subtext: The ID of the organization, folder, or project.
+          level: 1
         policy_type:
           name: policy_type
           title: Policy Type
+          subtext: The type of constraint (boolean or list).
+          enumValueLabels:
+            - label: List
+              value: list
+            - label: Boolean
+              value: boolean
+          altDefaults:
+            - type: ALTERNATE_TYPE_DC
+              value: list
         rules:
           name: rules
-          title: Rules
+          title: Policy Rules
+          subtext: List of rules for the policy. Refer to module documentation for the exact structure.
+          level: 1
     runtime:
       outputs:
         constraint:
