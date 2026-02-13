@@ -56,7 +56,7 @@ variable "policy_type" {
 variable "inherit_from_parent" {
   description = "Determines the inheritance behavior for this policy (only supported on list constraints)"
   type        = bool
-  default     = "false"
+  default     = false
 }
 
 variable "rules" {

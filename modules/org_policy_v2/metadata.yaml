@@ -60,7 +60,7 @@ spec:
       - name: inherit_from_parent
         description: Determines the inheritance behavior for this policy (only supported on list constraints)
         varType: bool
-        defaultValue: "false"
+        defaultValue: false
       - name: rules
         description: List of rules per policy.
         varType: |-
